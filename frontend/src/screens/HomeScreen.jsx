@@ -30,7 +30,7 @@ const HomeScreen = () => {
     const fetchData = async () => {
       dispatch({ type: 'FETCH_REQUEST' });
       try {
-        const result = await axios.get('api/products');
+        const result = await axios.get('/api/products');
         dispatch({ type: 'SUCCESS_REQUEST', payload: result.data });
       } catch (err) {
         dispatch({ type: 'FAIL_REQUEST', payload: err.message });
