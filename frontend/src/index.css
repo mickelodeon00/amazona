@@ -7,15 +7,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-header {
-  background-color: #404040;
-  padding: 1rem;
+.site-container {
+  min-height: 100vh;
 }
-header a {
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 600;
+main {
+  flex: 1;
 }
+
+.btn-primary {
+  background-color: #f0c040;
+  color: #000000;
+}
+
 .products {
   display: flex;
   flex-wrap: wrap;
@@ -32,6 +35,14 @@ header a {
   max-width: 350px;
   object-fit: cover;
 }
+.product-img {
+  /* max-height: 300px; */
+  height: 300px;
+}
 .product-info {
   padding: 1rem;
+}
+
+.rating span {
+  color: gold;
 }
