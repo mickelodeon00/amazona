@@ -10,7 +10,7 @@ const Rating = (props) => {
         const arr = [];
         for (let i = 0; i < 5; i++) {
           arr.push(
-            <span>
+            <span key={i}>
               <i
                 className={
                   newRating >= 1

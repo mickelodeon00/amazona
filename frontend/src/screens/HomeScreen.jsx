@@ -40,9 +40,6 @@ const HomeScreen = () => {
     fetchData();
   }, []);
 
-  console.log('GGGGGGG');
-  console.log(products);
-
   return (
     <div>
       <h2>Featured Products</h2>
