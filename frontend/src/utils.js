@@ -5,3 +5,9 @@ export const textWrap = (prop) => {
   }
   return prop;
 };
+
+export const getError = (error) => {
+  return error.response && error.response.data.message
+    ? error.response.data.message
+    : error.message;
+};
