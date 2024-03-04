@@ -1,6 +1,7 @@
 const data = {
   products: [
     {
+      _id: '1',
       name: 'Nike Slim Shirt',
       slug: 'nike-slim-shirt',
       category: 'Shirts',
@@ -13,6 +14,7 @@ const data = {
       description: 'High-quality shirt for everyday wear.',
     },
     {
+      _id: '2',
       name: 'Adidas Running Shoes',
       slug: 'adidas-running-shoes',
       category: 'Footwear',
@@ -25,6 +27,7 @@ const data = {
       description: 'Comfortable running shoes with excellent grip.',
     },
     {
+      _id: '3',
       name: 'Puma Sports Backpack',
       slug: 'puma-sports-backpack',
       category: 'Accessories',
@@ -37,6 +40,7 @@ const data = {
       description: 'Spacious backpack for gym or outdoor activities.',
     },
     {
+      _id: '4',
       name: 'Nike Air Max Sneakers',
       slug: 'nike-air-max-sneakers',
       category: 'Footwear',
@@ -49,6 +53,7 @@ const data = {
       description: 'Stylish sneakers for casual wear.',
     },
     {
+      _id: '5',
       name: 'Adidas Track Jacket',
       slug: 'adidas-track-jacket',
       category: 'Jackets',
@@ -61,6 +66,7 @@ const data = {
       description: 'Lightweight jacket for sports and leisure.',
     },
     {
+      _id: '6',
       name: 'Puma Yoga Leggings',
       slug: 'puma-yoga-leggings',
       category: 'Activewear',
@@ -73,6 +79,7 @@ const data = {
       description: 'Stretchy leggings for yoga and workouts.',
     },
     {
+      _id: '7',
       name: 'Nike Dri-FIT Cap',
       slug: 'nike-dri-fit-cap',
       category: 'Accessories',
@@ -85,6 +92,7 @@ const data = {
       description: 'Moisture-wicking cap for outdoor activities.',
     },
     {
+      _id: '8',
       name: 'Adidas Soccer Ball',
       slug: 'adidas-soccer-ball',
       category: 'Sports Equipment',
@@ -97,6 +105,7 @@ const data = {
       description: 'Durable ball for soccer enthusiasts.',
     },
     {
+      _id: '9',
       name: 'Puma Graphic T-Shirt',
       slug: 'puma-graphic-t-shirt',
       category: 'T-Shirts',
@@ -109,6 +118,7 @@ const data = {
       description: 'Trendy tee with bold graphics.',
     },
     {
+      _id: '10',
       name: 'Nike Gym Shorts',
       slug: 'nike-gym-shorts',
       category: 'Bottoms',
@@ -122,6 +132,7 @@ const data = {
     },
 
     {
+      _id: '11',
       name: 'Nike Dri-FIT Running Shirt',
       slug: 'nike-dri-fit-running-shirt',
       category: 'Shirts',
@@ -136,6 +147,7 @@ const data = {
     },
 
     {
+      _id: '12',
       name: 'Adidas Superstar Shoes',
       slug: 'adidas-superstar-shoes',
       category: 'Shoes',
@@ -149,6 +161,7 @@ const data = {
     },
 
     {
+      _id: '13',
       name: 'Puma Trinomic XT2',
       slug: 'puma-trinomic-xt2',
       category: 'Shoes',
@@ -162,6 +175,7 @@ const data = {
     },
 
     {
+      _id: '14',
       name: 'Nike Pro Cool Compression Shirt',
       slug: 'nike-pro-cool-compression-shirt',
       category: 'Shirts',
@@ -175,6 +189,7 @@ const data = {
     },
 
     {
+      _id: '15',
       name: 'Adidas Alphaskin Sport Tights',
       slug: 'adidas-alphaskin-sport-tights',
       category: 'Pants',
@@ -188,6 +203,7 @@ const data = {
         'Flexible Adidas compression tights for running and training',
     },
     {
+      _id: '16',
       name: 'Puma Carson Runner Jersey Shorts',
       slug: 'puma-carson-runner-jersey-shorts',
       category: 'Shorts',
@@ -201,6 +217,7 @@ const data = {
     },
 
     {
+      _id: '17',
       name: 'Nike AeroSwift Running Shorts',
       slug: 'nike-aeroswift-running-shorts',
       category: 'Shorts',
@@ -213,6 +230,7 @@ const data = {
       description: 'Ultra lightweight Nike shorts for racing and track',
     },
     {
+      _id: '18',
       name: 'Adidas Condivo Soccer Pants',
       slug: 'adidas-condivo-soccer-pants',
       category: 'Pants',
@@ -227,6 +245,7 @@ const data = {
     },
 
     {
+      _id: '19',
       name: 'Nike Dry Fit Athletic Shirt',
       slug: 'nike-dry-fit-athletic-shirt',
       category: 'Shirts',
@@ -240,6 +259,7 @@ const data = {
     },
 
     {
+      _id: '20',
       name: 'Adidas Tiro Pants',
       slug: 'adidas-tiro-pants',
       category: 'Pants',

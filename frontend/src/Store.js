@@ -5,11 +5,21 @@ export const Store = createContext();
 const reducer = (state, action) => {
   switch (action.type) {
     case 'CART_ADD_ITEM':
+      const newItem = action.payload;
+      const existItem = state.cart.cartItems.find(
+        (item) => item._id === newItem._id
+      );
+      const cartItems = existItem
+        ? state.cart.cartItems.map((item) =>
+            item._id === newItem._id ? newItem : item
+          )
+        : [...state.cart.cartItems, newItem];
+
       return {
         ...state,
         cart: {
           ...state.cart,
-          cartItems: [...state.cart.cartItems, action.payload],
+          cartItems,
         },
       };
     default:
