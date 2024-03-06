@@ -1,9 +1,9 @@
-export const textWrap = (prop) => {
-  const len = prop.length;
-  if (len > 15) {
-    return prop.slice(0, 15) + '...';
+export const textWrap = (text, len) => {
+  const mess = text.length;
+  if (mess > len) {
+    return text.slice(0, len) + '...';
   }
-  return prop;
+  return text;
 };
 
 export const getError = (error) => {
