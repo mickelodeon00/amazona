@@ -38,6 +38,19 @@ const reducer = (state, action) => {
         },
       };
     }
+
+    case 'USER_SIGNIN':
+      return {
+        ...state,
+        user: { ...action.payload },
+      };
+
+    case 'USER_SIGNOUT':
+      return {
+        ...state,
+        user: null,
+      };
+
     default:
       return state;
   }
@@ -49,6 +62,10 @@ const initialState = {
       ? JSON.parse(localStorage.getItem('cartItems'))
       : [],
   },
+
+  user: localStorage.getItem('user')
+    ? JSON.parse(localStorage.getItem('user'))
+    : null,
 };
 
 export const StoreProvider = (props) => {

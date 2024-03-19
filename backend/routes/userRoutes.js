@@ -15,7 +15,7 @@ userRouter.post(
       if (bcrypt.compareSync(req.body.password, user.password)) {
         res.send({
           _id: user._id,
-          user: user.name,
+          name: user.name,
           email: user.name,
           isAdmin: user.isAdmin,
           token: generateToken(user),
@@ -23,7 +23,7 @@ userRouter.post(
         return;
       }
     }
-    res.send({ message: 'invalid email or password' });
+    res.status(404).send({ message: 'Invalid email or password' });
   })
 );
 
