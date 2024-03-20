@@ -52,12 +52,3 @@ main {
 .small-container {
   max-width: 600px;
 }
-
-.checkout-steps > div {
-  border-bottom: 0.2rem solid dimgrey;
-  color: dimgrey;
-}
-.checkout-steps > div.active {
-  border-bottom: 0.2rem solid orange;
-  color: orange;
-}
