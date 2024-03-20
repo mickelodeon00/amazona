@@ -33,7 +33,7 @@ userRouter.post(
     const user = await User.findOne({ email: req.body.email });
     const { name, email, password } = req.body;
     if (!user) {
-      const createdUser = User.create({
+      const createdUser = await User.create({
         name: name,
         email: email,
         password: bcrypt.hashSync(password),
