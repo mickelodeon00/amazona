@@ -13,7 +13,7 @@ import { toast } from 'react-toastify';
 
 const SigninScreen = () => {
   const navigate = useNavigate();
-  const { state, dispatch: ctxDisptch } = useContext(Store);
+  const { state, dispatch: ctxDispatch } = useContext(Store);
   const { user } = state;
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -34,7 +34,7 @@ const SigninScreen = () => {
         email,
         password,
       });
-      ctxDisptch({ type: 'USER_SIGNIN', payload: data });
+      ctxDispatch({ type: 'USER_SIGNIN', payload: data });
       localStorage.setItem('user', JSON.stringify(data));
       navigate(redirect);
     } catch (err) {
