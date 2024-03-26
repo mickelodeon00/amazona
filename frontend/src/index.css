@@ -61,3 +61,10 @@ main {
   border-bottom: 0.2rem solid orange;
   color: orange;
 }
+
+.br-5 {
+  border-radius: 5px;
+}
+.btn-fullWidth {
+  width: 100%;
+}

@@ -38,6 +38,11 @@ const reducer = (state, action) => {
         },
       };
     }
+    case 'CLEAR_CART':
+      return {
+        ...state,
+        cart: { cartItems: [], shippingAddress: {}, paymentMethod: '' },
+      };
 
     case 'USER_SIGNIN':
       return {
