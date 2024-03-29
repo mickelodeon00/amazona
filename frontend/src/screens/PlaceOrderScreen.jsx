@@ -55,13 +55,13 @@ const PlaceOrderScreen = () => {
       const { data } = await axios.post(
         '/api/orders',
         {
-          cartOrders: cart.cartItems,
+          orderItems: cart.cartItems,
           paymentMethod: cart.paymentMethod,
           shippingAddress: cart.shippingAddress,
           itemsPrice: cart.itemsPrice,
           taxPrice: cart.taxPrice,
           shippingPrice: cart.shippingPrice,
-          totalPrice: cart.totalPrice,
+          totalPrice,
         },
         {
           headers: {
