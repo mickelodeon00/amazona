@@ -23,7 +23,6 @@ export const isAuth = (req, res, next) => {
       } else {
         req.user = decode;
         next();
-        console.log(decode, 'AHHHHHHH');
       }
     });
   } else {

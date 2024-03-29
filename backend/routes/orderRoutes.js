@@ -9,7 +9,6 @@ orderRouter.post(
   '/',
   isAuth,
   expressAsyncHandler(async (req, res) => {
-    console.log(req.body, 'VVVVVVVVVVVVVVV');
     const newOrder = new Order({
       orderItems: req.body.orderItems.map((item) => ({
         ...item,
@@ -24,7 +23,6 @@ orderRouter.post(
       user: req.user._id,
     });
     const order = await newOrder.save();
-    console.log(order, 'ORRDDEER');
     res.status(201).send({ message: 'New Order Created', order });
   })
 );
