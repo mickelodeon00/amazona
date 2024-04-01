@@ -28,7 +28,7 @@ const PaymentMethodScreen = () => {
     e.preventDefault();
     ctxDispatch({ type: 'PAYMENT_METHOD', payload: paymentMethodName });
     localStorage.setItem('paymentMethod', paymentMethodName);
-    navigate('/order');
+    navigate('/placeorder');
   };
   return (
     <div>

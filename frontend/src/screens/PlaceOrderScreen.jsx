@@ -61,7 +61,7 @@ const PlaceOrderScreen = () => {
           itemsPrice: cart.itemsPrice,
           taxPrice: cart.taxPrice,
           shippingPrice: cart.shippingPrice,
-          totalPrice,
+          totalPrice: totalPrice,
         },
         {
           headers: {
