@@ -5,6 +5,8 @@ import seedRouter from './routes/seedRoutes.js';
 import productRouter from './routes/productRoutes.js';
 import userRouter from './routes/userRoutes.js';
 import orderRouter from './routes/orderRoutes.js';
+import expressAsyncHandler from 'express-async-handler';
+import { isAuth } from './utils.js';
 
 dotenv.config();
 
@@ -21,6 +23,14 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.get(
+  '/api/keys/paypal',
+  isAuth,
+  expressAsyncHandler(async (req, res) => {
+    res.send(process.env.PAYPAL_CLIENT_ID || 'sb');
+  })
+);
 
 app.use('/api/seed', seedRouter);
 app.use('/api/products', productRouter);
