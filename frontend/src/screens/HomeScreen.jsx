@@ -21,7 +21,6 @@ const reducer = (state, action) => {
 };
 
 const HomeScreen = () => {
-  // const [products, setProducts] = useState([]);
   const [{ products, loading, error }, dispatch] = useReducer(logger(reducer), {
     products: [],
     loading: true,
@@ -37,7 +36,6 @@ const HomeScreen = () => {
       } catch (err) {
         dispatch({ type: 'FAIL_REQUEST', payload: err.message });
       }
-      // setProducts(result.data);
     };
     fetchData();
   }, []);

@@ -186,8 +186,8 @@ const OrderScreen = () => {
                   <Card.Title>Items</Card.Title>
                   <ListGroup variant="flush">
                     {order.orderItems.map((item) => (
-                      <ListGroup.Item>
-                        <Row key={item._id} className="align-items-center">
+                      <ListGroup.Item key={item._id}>
+                        <Row className="align-items-center">
                           <Col md={6}>
                             <img
                               src={item.image}
@@ -241,7 +241,6 @@ const OrderScreen = () => {
                     </ListGroup.Item>
                     {!order.isPaid && (
                       <ListGroup.Item>
-                        {console.log(isPending, 'isPending')}
                         {isPending ? (
                           <LoadingBox />
                         ) : (

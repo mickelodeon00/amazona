@@ -122,8 +122,8 @@ const PlaceOrderScreen = () => {
               <Card.Title>Items</Card.Title>
               <ListGroup variant="flush">
                 {cart.cartItems.map((item) => (
-                  <ListGroup.Item>
-                    <Row key={item._id} className="align-items-center">
+                  <ListGroup.Item key={item._id}>
+                    <Row className="align-items-center">
                       <Col md={6}>
                         <img
                           src={item.image}

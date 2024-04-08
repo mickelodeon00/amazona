@@ -52,6 +52,12 @@ main {
 .small-container {
   max-width: 600px;
 }
+.flex-container {
+  /* display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #f0c040; */
+}
 
 .checkout-steps > div {
   border-bottom: 0.2rem solid darkgrey;
@@ -67,4 +73,8 @@ main {
 }
 .btn-fullWidth {
   width: 100%;
+}
+
+.table thead {
+  border-bottom: 2px solid black;
 }
