@@ -10,6 +10,7 @@ import { getError } from '../utils';
 import { Store } from '../Store';
 import { useEffect } from 'react';
 import { toast } from 'react-toastify';
+import { API_URL } from '../ApiUrl';
 
 const SigninScreen = () => {
   const navigate = useNavigate();
@@ -30,7 +31,7 @@ const SigninScreen = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post('/api/users/signin', {
+      const { data } = await axios.post(`${API_URL}/users/signin`, {
         email,
         password,
       });

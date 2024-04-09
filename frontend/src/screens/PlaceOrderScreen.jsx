@@ -14,6 +14,7 @@ import { useReducer } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import LoadingBox from '../components/LoadingBox';
+import { API_URL } from '../ApiUrl';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -53,7 +54,7 @@ const PlaceOrderScreen = () => {
     try {
       dispatch({ type: 'CREATE_REQUEST' });
       const { data } = await axios.post(
-        '/api/orders',
+        `${API_URL}/orders`,
         {
           orderItems: cart.cartItems,
           paymentMethod: cart.paymentMethod,

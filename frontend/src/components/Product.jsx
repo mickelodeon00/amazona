@@ -6,6 +6,7 @@ import { textWrap } from '../utils';
 import Rating from './Rating';
 import { Store } from '../Store';
 import axios from 'axios';
+import { API_URL } from '../ApiUrl';
 
 const Product = (props) => {
   const { product } = props;
@@ -16,7 +17,7 @@ const Product = (props) => {
     const existItem = cart.cartItems.find((item) => item._id === product._id);
     const quantity = existItem ? existItem.quantity + 1 : 1;
 
-    const { data } = await axios.get(`/api/products/${product._id}`);
+    const { data } = await axios.get(`${API_URL}/products/${product._id}`);
 
     if (data.countInStock < quantity) {
       window.alert('Sorry, product is out of stock');

@@ -14,6 +14,7 @@ import MessageBox from '../components/MessageBox';
 import { getError } from '../utils';
 import { useContext } from 'react';
 import { Store } from '../Store';
+import { API_URL } from '../ApiUrl';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -43,7 +44,7 @@ const ProductScreen = () => {
     const fetchData = async () => {
       dispatch({ type: 'FETCH_REQUEST' });
       try {
-        const result = await axios.get(`/api/products/slug/${slug}`);
+        const result = await axios.get(`${API_URL}/products/slug/${slug}`);
         dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
       } catch (err) {
         console.log(err, 'JJJJJJJJJJ');

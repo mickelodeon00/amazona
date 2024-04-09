@@ -6,6 +6,9 @@ import Col from 'react-bootstrap/Col';
 import Product from '../components/Product';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
+import { API_URL } from '../ApiUrl';
+
+// const API_URL = `${process.env.REACT_APP_BACKEND_API_URL}`;
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -31,7 +34,7 @@ const HomeScreen = () => {
     const fetchData = async () => {
       dispatch({ type: 'FETCH_REQUEST' });
       try {
-        const result = await axios.get('/api/products');
+        const result = await axios.get(`${API_URL}/products`);
         dispatch({ type: 'SUCCESS_REQUEST', payload: result.data });
       } catch (err) {
         dispatch({ type: 'FAIL_REQUEST', payload: err.message });

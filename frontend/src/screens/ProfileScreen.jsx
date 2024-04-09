@@ -10,6 +10,7 @@ import { useContext } from 'react';
 import { Store } from '../Store';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { API_URL } from '../ApiUrl';
 
 const ProfileScreen = () => {
   const navigate = useNavigate();
@@ -32,7 +33,7 @@ const ProfileScreen = () => {
     } else {
       try {
         const { data } = await axios.put(
-          '/api/users/profile',
+          `${API_URL}/users/profile`,
           {
             name,
             email,

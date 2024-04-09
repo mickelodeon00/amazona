@@ -8,6 +8,7 @@ import axios from 'axios';
 import { Store } from '../Store';
 import MessageBox from '../components/MessageBox';
 import LoadingBox from '../components/LoadingBox';
+import { API_URL } from '../ApiUrl';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -41,7 +42,7 @@ const OrderHistoryScreen = () => {
     const fetchData = async () => {
       dispatch({ type: 'FETCH_REQUEST' });
       try {
-        const { data } = await axios.get('/api/orders', {
+        const { data } = await axios.get(`${API_URL}/orders`, {
           headers: {
             authorization: `BEARER ${user.token}`,
           },

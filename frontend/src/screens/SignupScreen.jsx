@@ -8,6 +8,7 @@ import { toast } from 'react-toastify';
 import { useContext } from 'react';
 import { Store } from '../Store';
 import { getError } from '../utils';
+import { API_URL } from '../ApiUrl';
 
 const SignupScreen = () => {
   const [name, setName] = useState('');
@@ -29,7 +30,7 @@ const SignupScreen = () => {
       return;
     }
     try {
-      const { data } = await axios.post('/api/users/signup', {
+      const { data } = await axios.post(`${API_URL}/users/signup`, {
         name,
         email,
         password,

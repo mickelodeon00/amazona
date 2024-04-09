@@ -18,6 +18,7 @@ import { useContext } from 'react';
 import { Store } from '../Store';
 
 import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js';
+import { API_URL } from '../ApiUrl';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -61,7 +62,7 @@ const OrderScreen = () => {
     const fetchData = async () => {
       dispatch({ type: 'FETCH_REQUEST' });
       try {
-        const { data } = await axios.get(`/api/orders/${orderId}`, {
+        const { data } = await axios.get(`${API_URL}/orders/${orderId}`, {
           headers: {
             authorization: `BEARER ${user.token}`,
           },
@@ -73,7 +74,7 @@ const OrderScreen = () => {
     };
     const loadPayPalScript = async () => {
       try {
-        const { data } = await axios.get('/api/keys/paypal', {
+        const { data } = await axios.get(`${API_URL}/keys/paypal`, {
           headers: {
             authorization: `BEARER ${user.token}`,
           },
@@ -113,7 +114,7 @@ const OrderScreen = () => {
       dispatch({ type: 'PAY_REQUEST' });
       try {
         const { data } = await axios.put(
-          `/api/orders/${order._id}/pay`,
+          `${API_URL}/orders/${order._id}/pay`,
           details,
           {
             headers: {
