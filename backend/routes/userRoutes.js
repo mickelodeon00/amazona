@@ -2,7 +2,7 @@ import express from 'express';
 import bcrypt from 'bcryptjs';
 import expressAsyncHandler from 'express-async-handler';
 import { User } from '../models/userModel.js';
-import { generateToken } from '../utils.js';
+import { generateToken, isAuth } from '../utils.js';
 
 const userRouter = express.Router();
 
@@ -49,6 +49,33 @@ userRouter.post(
       res
         .status(404)
         .send({ message: 'This email is already associated with an account' });
+  })
+);
+userRouter.put(
+  '/profile',
+  isAuth,
+  expressAsyncHandler(async (req, res) => {
+    const user = await User.findById(req.user._id);
+    const { name, email, password } = req.body;
+    console.log(req.body, 'user.body');
+    if (user) {
+      user.name = name || user.name;
+      user.email = email || user.email;
+      if (password) user.password = bcrypt.hashSync(password);
+
+      try {
+        const updatedUser = await user.save();
+        res.send({
+          _id: updatedUser._id,
+          name: updatedUser.name,
+          email: updatedUser.email,
+          isAdmin: updatedUser.isAdmin,
+          token: generateToken(updatedUser),
+        });
+      } catch (err) {
+        res.status(500).send({ message: 'User update failed' });
+      }
+    } else res.status(404).send({ message: 'User not found' });
   })
 );
 

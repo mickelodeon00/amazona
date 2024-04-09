@@ -20,16 +20,20 @@ import PaymentMethodScreen from './screens/PaymentMethodScreen';
 import PlaceOrderScreen from './screens/PlaceOrderScreen';
 import OrderScreen from './screens/OrderScreen';
 import OrderHistoryScreen from './screens/OrderHistoryScreen';
+import ProfileScreen from './screens/ProfileScreen';
 
 function App() {
   const { state, dispatch } = useContext(Store);
   const { cart, user } = state;
+
   const signoutHandler = () => {
+    console.log(window.location.pathname, 'location in signoutHandler');
     dispatch({ type: 'USER_SIGNOUT' });
     localStorage.removeItem('user');
     localStorage.removeItem('shippingAddress');
     localStorage.removeItem('cartItems');
     localStorage.removeItem('paymentMethod');
+    // window.location.href = '/signin';
   };
   return (
     <BrowserRouter>
@@ -67,7 +71,7 @@ function App() {
                       <NavDropdown.Divider />
                       <Link
                         className="dropdown-item"
-                        to="#signout"
+                        to="/signin"
                         onClick={signoutHandler}
                       >
                         Sign Out
@@ -95,6 +99,7 @@ function App() {
               <Route path="/placeorder" element={<PlaceOrderScreen />} />
               <Route path="/order/:id" element={<OrderScreen />} />
               <Route path="/orderhistory" element={<OrderHistoryScreen />} />
+              <Route path="/profile" element={<ProfileScreen />} />
               <Route path="/" element={<HomeScreen />} />
             </Routes>
           </Container>
