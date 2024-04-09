@@ -32,6 +32,9 @@ app.get(
   })
 );
 
+app.get('/', (req, res) => {
+  res.send('Amazona Server is Live');
+});
 app.use('/api/seed', seedRouter);
 app.use('/api/products', productRouter);
 app.use('/api/users', userRouter);
