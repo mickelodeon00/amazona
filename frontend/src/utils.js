@@ -22,8 +22,7 @@ export const roundTo = (n, p) => {
 
 export const dateFormat = (date, format = 'D') => {
   const newDate = new Date(date.toLocaleString());
-  const [seconds, minutes, hour, day, month, year] = [
-    newDate.getSeconds(),
+  const [minutes, hour, day, month, year] = [
     newDate.getMinutes(),
     newDate.getHours(),
     newDate.getDate(),
