@@ -63,7 +63,7 @@ const ProductScreen = () => {
     const existItem = cart.cartItems.find((item) => item._id === product._id);
     const quantity = existItem ? existItem.quantity + 1 : 1;
 
-    const { data } = await axios.get(`/api/products/${product._id}`);
+    const { data } = await axios.get(`${API_URL}/products/${product._id}`);
 
     if (data.countInStock < quantity) {
       window.alert('Sorry, product is out of stock');
