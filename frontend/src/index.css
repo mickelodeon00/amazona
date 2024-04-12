@@ -9,12 +9,14 @@ body {
 
 .site-container {
   min-height: 100vh;
+  transition: 0.4s;
 }
 main {
   flex: 1;
 }
 
-.btn-primary {
+.btn-primary,
+.btn-outline-primary {
   background-color: #f0c040;
   color: #000000;
 }
@@ -77,4 +79,28 @@ main {
 
 .table thead {
   border-bottom: 2px solid black;
+}
+
+/* sidebar */
+.navbar-brand {
+  font: bold;
+}
+.side-navbar {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-betweenS;
+  width: 240px;
+  height: 100%;
+  position: absolute;
+  left: -300px;
+  background-color: #100901;
+  transition: 0.5s;
+}
+
+.active-cont {
+  margin-left: 240px;
+}
+.active-nav {
+  left: 0;
 }
