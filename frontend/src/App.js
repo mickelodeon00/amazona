@@ -26,6 +26,7 @@ import { API_URL } from './ApiUrl';
 import { getError } from './utils';
 import axios from 'axios';
 import SearchBox from './components/SearchBox';
+import SearchScreen from './screens/SearchScreen';
 
 function App() {
   const { state, dispatch } = useContext(Store);
@@ -46,7 +47,6 @@ function App() {
   }, []);
 
   const signoutHandler = () => {
-    console.log(window.location.pathname, 'location in signoutHandler');
     dispatch({ type: 'USER_SIGNOUT' });
     localStorage.removeItem('user');
     localStorage.removeItem('shippingAddress');
@@ -129,7 +129,6 @@ function App() {
             {categories.map((category) => (
               <Nav.Item key={category}>
                 <LinkContainer
-                  // to={`/search?category=${category}`}
                   to={{
                     pathname: '/search',
                     search: `?category=${category}`,
@@ -155,6 +154,7 @@ function App() {
               <Route path="/order/:id" element={<OrderScreen />} />
               <Route path="/orderhistory" element={<OrderHistoryScreen />} />
               <Route path="/profile" element={<ProfileScreen />} />
+              <Route path="/search" element={<SearchScreen />} />
               <Route path="/" element={<HomeScreen />} />
             </Routes>
           </Container>
