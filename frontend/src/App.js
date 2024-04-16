@@ -27,6 +27,12 @@ import { getError } from './utils';
 import axios from 'axios';
 import SearchBox from './components/SearchBox';
 import SearchScreen from './screens/SearchScreen';
+import { ProtectedRoutes } from './components/ProtectedRoutes';
+import { AdminRoutes } from './components/AdminRoutes';
+import AdminDashboardScreen from './screens/AdminDashboardScreen';
+import AdminProductScreen from './screens/AdminProductScreen';
+import AdminOrderScreen from './screens/AdminOrderScreen';
+import AdminUserScreen from './screens/AdminUserScreen';
 
 function App() {
   const { state, dispatch } = useContext(Store);
@@ -103,7 +109,7 @@ function App() {
                       <NavDropdown.Divider />
                       <Link
                         className="dropdown-item"
-                        to="/signin"
+                        to="#signout"
                         onClick={signoutHandler}
                       >
                         Sign Out
@@ -113,6 +119,22 @@ function App() {
                     <Link className="nav-link" to="/signin">
                       Sign In
                     </Link>
+                  )}
+                  {user && user.isAdmin && (
+                    <NavDropdown title="Admin" id="admin-nav-dropdown">
+                      <LinkContainer to="/admin/dashboard">
+                        <NavDropdown.Item>Dashboard</NavDropdown.Item>
+                      </LinkContainer>
+                      <LinkContainer to="/admin/products">
+                        <NavDropdown.Item>Products</NavDropdown.Item>
+                      </LinkContainer>
+                      <LinkContainer to="/admin/orders">
+                        <NavDropdown.Item>Orders</NavDropdown.Item>
+                      </LinkContainer>
+                      <LinkContainer to="/admin/users">
+                        <NavDropdown.Item>Users</NavDropdown.Item>
+                      </LinkContainer>
+                    </NavDropdown>
                   )}
                 </Nav>
               </Navbar.Collapse>
@@ -144,16 +166,48 @@ function App() {
         <main>
           <Container className="mt-3">
             <Routes>
+              {/* ProtectedRoute */}
+              <Route
+                path="/*"
+                element={
+                  <ProtectedRoutes>
+                    <Route
+                      path="shipping"
+                      element={<ShippingAddressScreen />}
+                    />
+                    <Route
+                      path="orderhistory"
+                      element={<OrderHistoryScreen />}
+                    />
+                    <Route path="payment" element={<PaymentMethodScreen />} />
+                    <Route path="placeorder" element={<PlaceOrderScreen />} />
+                    <Route path="order/:id" element={<OrderScreen />} />
+                    <Route path="profile" element={<ProfileScreen />} />
+                  </ProtectedRoutes>
+                }
+              />
+
+              {/* AdminRoutes */}
+              <Route
+                path="/admin/*"
+                element={
+                  <AdminRoutes>
+                    <Route
+                      path="dashboard"
+                      element={<AdminDashboardScreen />}
+                    />
+                    <Route path="products" element={<AdminProductScreen />} />
+                    <Route path="orders" element={<AdminOrderScreen />} />
+                    <Route path="users" element={<AdminUserScreen />} />
+                  </AdminRoutes>
+                }
+              />
+              {/* <Route path="/admin/products" element={<AdminProductScreen />} /> */}
+
               <Route path="/product/:slug" element={<ProductScreen />} />
               <Route path="/cart" element={<CartScreen />} />
               <Route path="/signin" element={<SigninScreen />} />
               <Route path="/signup" element={<SignupScreen />} />
-              <Route path="/shipping" element={<ShippingAddressScreen />} />
-              <Route path="/payment" element={<PaymentMethodScreen />} />
-              <Route path="/placeorder" element={<PlaceOrderScreen />} />
-              <Route path="/order/:id" element={<OrderScreen />} />
-              <Route path="/orderhistory" element={<OrderHistoryScreen />} />
-              <Route path="/profile" element={<ProfileScreen />} />
               <Route path="/search" element={<SearchScreen />} />
               <Route path="/" element={<HomeScreen />} />
             </Routes>
