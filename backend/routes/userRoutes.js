@@ -56,11 +56,11 @@ userRouter.put(
   isAuth,
   expressAsyncHandler(async (req, res) => {
     const user = await User.findById(req.user._id);
-    const { name, email, password } = req.body;
-    console.log(req.body, 'user.body');
+    const { name, email, image, password } = req.body;
     if (user) {
       user.name = name || user.name;
       user.email = email || user.email;
+      if (image) user.image = image;
       if (password) user.password = bcrypt.hashSync(password);
 
       try {
@@ -70,6 +70,7 @@ userRouter.put(
           name: updatedUser.name,
           email: updatedUser.email,
           isAdmin: updatedUser.isAdmin,
+          image: updatedUser.image,
           token: generateToken(updatedUser),
         });
       } catch (err) {
