@@ -41,7 +41,7 @@ const ProfileScreen = () => {
 
   const [file, setFile] = useState('');
   const [image, setImage] = useState(user.image);
-  const [{ loadingImage, error }, dispatch] = useReducer(reducer, {
+  const [{ loadingImage }, dispatch] = useReducer(reducer, {
     loadingImage: false,
     error: '',
   });
